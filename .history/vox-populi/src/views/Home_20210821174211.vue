@@ -1,0 +1,25 @@
+<template>
+  <div class="row">
+    
+    <div class="col-4"> 
+      ovdje aaaaa
+    </div>
+    <div class="col-7"> 
+      ovdje aaaaa
+    </div>
+    
+  <div class="col-3">
+    ovdjeee
+  </div>
+    
+  </div>
+</template>
+
+
+<style>
+
+</style>
+
+<script>
+
+</script>
