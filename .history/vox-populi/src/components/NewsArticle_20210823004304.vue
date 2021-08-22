@@ -121,7 +121,7 @@ export default {
 
     },
 
-    // fetches data when at the end of page
+    //
 
     scrollTrigger() {
     const observer = new IntersectionObserver((entries) => {
