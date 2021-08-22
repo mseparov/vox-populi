@@ -53,6 +53,7 @@ overflow-x:hidden;
     &.router-link-exact-active {
       color: #ffffff;
     }
+
   }
 
   #nav_ele1{

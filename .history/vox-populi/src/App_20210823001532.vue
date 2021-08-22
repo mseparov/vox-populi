@@ -8,9 +8,9 @@
       &nbsp; Vox Populi
       </a>
       
-          <router-link to="/" id="nav_ele1" class="nav-link">Home</router-link>
+          <router-link to="/" class="nav-link">Home</router-link>
           
-          <router-link to="/about" id="nav_ele2" class="nav-link">About</router-link> 
+          <router-link to="/about" class="nav-link">About</router-link> 
           
           
     </nav>
@@ -27,8 +27,8 @@ body{
 background-color: rgba(157, 207, 219, 0.61);
 background: url("assets/background.jpg") no-repeat center center fixed;
 
-height: 100vh; //100% view height
-width:  99.3vw; //100% view width
+height: 100vh;//100% view height
+width: 99.3vw;// 100% view width
 overflow-x:hidden;
 }
 
@@ -53,15 +53,11 @@ overflow-x:hidden;
     &.router-link-exact-active {
       color: #ffffff;
     }
-  }
 
-  #nav_ele1{
-    margin-left: 48%;
   }
 
   .logo{
     border-radius: 5px;
-    margin-left: 143.5%;
   }
 
   a.navbar-brand{

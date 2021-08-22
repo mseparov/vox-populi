@@ -53,10 +53,12 @@ overflow-x:hidden;
     &.router-link-exact-active {
       color: #ffffff;
     }
+
   }
 
   #nav_ele1{
     margin-left: 48%;
+
   }
 
   .logo{

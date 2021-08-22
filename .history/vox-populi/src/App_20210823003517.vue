@@ -27,8 +27,8 @@ body{
 background-color: rgba(157, 207, 219, 0.61);
 background: url("assets/background.jpg") no-repeat center center fixed;
 
-height: 100vh; //100% view height
-width:  99.3vw; //100% view width
+height: 100vh;//100% view height
+width: 99.3vw;// 100% view width
 overflow-x:hidden;
 }
 
@@ -53,15 +53,17 @@ overflow-x:hidden;
     &.router-link-exact-active {
       color: #ffffff;
     }
+
   }
 
   #nav_ele1{
-    margin-left: 48%;
+
+    margin-left: 20%;
+
   }
 
   .logo{
     border-radius: 5px;
-    margin-left: 143.5%;
   }
 
   a.navbar-brand{

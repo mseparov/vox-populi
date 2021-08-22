@@ -53,15 +53,18 @@ overflow-x:hidden;
     &.router-link-exact-active {
       color: #ffffff;
     }
+
   }
 
   #nav_ele1{
+
     margin-left: 48%;
+
   }
 
   .logo{
     border-radius: 5px;
-    margin-left: 143.5%;
+    margin-left: 144%;
   }
 
   a.navbar-brand{
