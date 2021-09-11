@@ -21,7 +21,7 @@
               <label for="lastnameField">Last name</label>
               <input 
                 type="lastname" 
-                v-model="lastname"
+                v-model="Lastname"
                 class="form-control" 
                 id="lastnameField" 
                 placeholder="e.g. Doe ">

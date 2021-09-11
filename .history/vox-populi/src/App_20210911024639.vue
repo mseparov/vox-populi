@@ -1,28 +1,28 @@
 <template>
   <div id="app">
     <nav id="nav" class="navbar navbar-expand-lg navbar-light">
-
+     
       <!-- <div class="container-fluid"> -->
-      <a class="navbar-brand" href="http://localhost:8080">
+      <a class="navbar-brand" href="http://localhost:8080/">
       <img src="@/assets/Vox2.png" id="home_title" alt="" width="60"  class="d-inline-block align-text-centre logo">
       &nbsp; Vox Populi
       </a>
-
+      
           <a href="http://localhost:8080/" v-if="store.currentUser" id="nav_ele1" class="nav-link">&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;Home</a>
-
-          <router-link to="/about" v-if="store.currentUser" id="nav_ele2" class="nav-link">About</router-link>
-          <router-link to="/about" v-else id="nav_ele1"  span style="padding-left: 100px"  class="nav-link">About</router-link>
+          <a href="http://localhost:8080/" v-else id="nav_ele1" class="nav-link">Home</a>
+          
+          <router-link to="/about" id="nav_ele2" class="nav-link">About</router-link> 
 
           <router-link to="/login" v-if="!store.currentUser" id="nav_ele3" class="nav-link">Login</router-link> 
 
           <router-link to="/signup" v-if="!store.currentUser" id="nav_ele4" class="nav-link">Sign up</router-link> 
-
+          
           <a href="#" v-if="store.currentUser" @click.prevent="logout()" id="nav_ele5" class="nav-link">Logout</a> 
 
     </nav>
-
+    
     <router-view/>
-
+    
   </div>
 
 </template>

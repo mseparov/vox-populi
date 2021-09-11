@@ -3,7 +3,7 @@
     <nav id="nav" class="navbar navbar-expand-lg navbar-light">
 
       <!-- <div class="container-fluid"> -->
-      <a class="navbar-brand" href="http://localhost:8080">
+      <a class="navbar-brand" href="http://localhost:8080/%22%3E
       <img src="@/assets/Vox2.png" id="home_title" alt="" width="60"  class="d-inline-block align-text-centre logo">
       &nbsp; Vox Populi
       </a>

@@ -1,6 +1,6 @@
 <template>
  <div class="login">
-    <h1>Welcome back!</h1>
+    <h1>This is a login page</h1>
         <div class="container mt-4">
         <div class="row">
         <div class="col-sm"></div>
@@ -14,7 +14,8 @@
             class="form-control" 
             id="exampleInputEmail1" 
             aria-describedby="emailHelp" 
-            placeholder="name@example.com" />
+            placeholder="Enter email" />
+        <small id="emailHelp" class="form-text text-muted" >We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
@@ -49,21 +50,28 @@ export default {
 
     methods: {
         login() {
+
             firebase.auth().signInWithEmailAndPassword(this.username, this.password)
             .then(
+
                 (result) => {
                     console.log("Succesfully logged in", result)
+
                     this.$router.replace({ name: "Home"});
                 }
+
             )
-            .catch( 
+            .catch(
+                
                 function(error) {
                     console.error("Failed to login", error)
-                    alert("Sorry, your email or password is incorrect. Please try again.")
                 }
+
             )
         }
+
     }
+
 }
 
 </script>

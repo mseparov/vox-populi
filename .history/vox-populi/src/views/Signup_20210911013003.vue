@@ -1,31 +1,12 @@
 <template>
   <div class="signup">
-    <h1>Sign up</h1>
-    <h4>Please fill in this form to create an account :)</h4>
+    <h1>This is a signup page</h1>
     <div class="container">
       <div class="row mt-4">
         <div class="col-sm">
         </div>
         <div class="col-sm">
           <form>
-          <div class="form-group">
-              <label for="firstnameField">First name</label>
-              <input 
-                type="firstname" 
-                v-model="firstname"
-                class="form-control" 
-                id="firstnameField" 
-                placeholder="e.g. Jane">
-                </div>
-          <div class="form-group">
-              <label for="lastnameField">Last name</label>
-              <input 
-                type="lastname" 
-                v-model="lastname"
-                class="form-control" 
-                id="lastnameField" 
-                placeholder="e.g. Doe ">
-                </div>
             <div class="form-group">
               <label for="emailField">Email address</label>
               <input 
@@ -34,7 +15,8 @@
                 class="form-control" 
                 id="emailField" 
                 aria-describedby="emailHelp" 
-                placeholder="name@example.com">
+                placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
               <label for="passwordField">Password</label>
@@ -73,8 +55,6 @@ export default{
     name:"Signup",
     data(){
         return{
-            firstname: "",
-            lastname: "",
             username: "",
             password: "",
             passwordRepeat: "",
@@ -84,8 +64,6 @@ export default{
 
         //singup function
         signup(){
-
-          if(this.firstname.length !=0 || this.lastname.length !=0 || this.username.length !=0) {
             
             if(this.password == this.passwordRepeat) {
                 if(this.password.length >= 6){
@@ -112,15 +90,10 @@ export default{
 
             else{
             alert("Password not matching")
-            }
-            
-          } else {
-            alert("You must fill in all the fields.")}
- 
-        },
+            }},
         //signup function
 
-      
+        
 
     },
 };
