@@ -5,8 +5,8 @@
         <button @click="filterSearch()" class="search_button">Search</button>
       </form>
       
-      <form @submit.prevent="postNewArticle" class="form mb-5">
-      <div class="form-group mb-3">
+      <form @submit.prevent="postNewArticle" class="form">
+      <div class="form-group mt-4 mb-3">
         <label for="articleimage">Upload an image</label>
         <br/>
         <croppa :width="200" :height="200" placeholder="Image" v-model="imageReference" class="form-control-lg"></croppa>
@@ -23,18 +23,18 @@
         <br/>
         <textarea v-model="newArticleText" rows="6" cols="100"> </textarea>  
       </div>
-      <button type="button" @click="postNewArticle" class="btn btn-primary mt-4">Post Article</button>
+      <button type="button" @click="postNewArticle" class="btn btn-primary mt-4 mb-4">Post Article</button>
       </form>
-  <div class = "form-group mb-5">
-    <ourArticle v-for="article in articles" :key="article.id" :info="article"/>  
-  </div> 
+      <div class = "form-group">
+        <ourArticle v-for="article in articles" :key="article.id" :info="article"/>
+      </div>
   </div> 
 </template>
-
 
 <script>
 import store from '@/store';
 import ourArticle from '@/components/ourArticle.vue';
+import Comments from '@/components/Comments.vue';
 import { firebase, db, storage } from '@/firebase';
 
 export default{
@@ -50,6 +50,7 @@ export default{
   },
   components: {
     ourArticle,
+    Comments,
   },
   mounted() {
     this.getArticles();
@@ -84,11 +85,10 @@ export default{
       });
     },
     postNewArticle() {
-      this.getImage()
-      .then((data) => {
+      this.getImage().then((data) => {
         let imageName = 'images/' + store.currentUser + '/' + Date.now() + '.png';
 
-        return storage.ref(imageName).put(blobData)
+        return storage.ref(imageName).put(data)
       })
       .then((result) => {
         return result.ref.getDownloadURL()
@@ -117,7 +117,7 @@ export default{
       .catch((e) =>{
         console.error(e);
       });
-    },
+    }
   },
   computed: {
     
@@ -128,3 +128,9 @@ export default{
   }
 };
 </script>
+
+<style scoped>
+.form{
+    background:rgb(125, 151, 199);
+}
+</style>

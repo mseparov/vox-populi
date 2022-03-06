@@ -5,22 +5,27 @@
           <img class="card-img-left" width="200" height="200" :src="info.img" />
           </div>
           <div class="column-right">
-            {{"info.aheader"}}
+            {{info.aheader}}
             <br>
-            {{"info.atext"}}
+            {{info.atext}}
             <br>
             {{publishTime}}
           </div>
+          <Comments/>
       </div>
     </div>
 </template>
 
 <script>
 import moment from 'moment';
+import Comments from '@/components/Comments.vue';
 
 export default{
   name: 'ourArticle',
   props: ['info'],
+  components: {
+    Comments,
+  },
   computed: {
         publishTime(){
           return moment(this.info.time).fromNow();
