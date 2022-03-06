@@ -1,7 +1,7 @@
 <template>
  <div class="login">
     <h1>Welcome back!</h1>
-        <div class="container mt-4">
+        <div class="color mt-4">
         <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm">
@@ -53,7 +53,6 @@ export default {
             .then(
                 (result) => {
                     console.log("Succesfully logged in", result)
-                    this.$router.replace({ name: "Home"});
                 }
             )
             .catch( 
@@ -70,13 +69,19 @@ export default {
 
 <style scoped>
     .login{
-  background:rgb(125, 151, 199);
+  background:rgb(174, 193, 228);
   width: 50%;
+  margin-top: 135px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 10px;
+}
+
+
+.color{
+  background-color: rgb(209, 220, 243);
 }
 
 </style>

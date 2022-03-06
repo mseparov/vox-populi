@@ -3,15 +3,15 @@
     <nav id="nav" class="navbar navbar-expand-lg navbar-light">
 
       <!-- <div class="container-fluid"> -->
-      <a class="navbar-brand" href="http://localhost:8080">
+      <router-link to="/home" class="navbar-brand">
       <img src="@/assets/Vox2.png" id="home_title" alt="" width="60"  class="d-inline-block align-text-centre logo">
       &nbsp; Vox Populi
-      </a>
+      </router-link>
 
-          <a href="http://localhost:8080/" v-if="store.currentUser" id="nav_ele1" class="nav-link">&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;Home</a>
+          <router-link to="/home" v-if="store.currentUser" id="nav_ele1" class="nav-link">Home</router-link>
 
           <router-link to="/about" v-if="store.currentUser" id="nav_ele2" class="nav-link">About</router-link>
-          <router-link to="/about" v-else id="nav_ele1"  span style="padding-left: 100px"  class="nav-link">About</router-link>
+          <router-link to="/about" v-else id="nav_ele1" class="nav-link">About</router-link>
 
           <router-link to="/login" v-if="!store.currentUser" id="nav_ele3" class="nav-link">Login</router-link> 
 
@@ -34,17 +34,23 @@ import { firebase } from '@/firebase';
 import router from '@/router';
 
 firebase.auth().onAuthStateChanged((user) => {
+const currentRoute = router.currentRoute;
+
 if (user) {
   // User is signed in.
   console.log(' Logged in ', user.email);
   store.currentUser = user.email;
+
+  if(!currentRoute.meta.needsUser) {
+    router.push({ name: "Home"});
+  }
 } 
 else {
   // User is not signed in.
   console.log('Logged out');
   store.currentUser = null;
 
-if (router.name !== 'Login') {
+if (currentRoute.meta.needsUser) {
   router.push({ name: 'Login' });
 }
 }
@@ -100,6 +106,9 @@ overflow-x:hidden;
 }
 
 #nav {
+  position: fixed;
+  top: 0;
+  z-index: 99;
   padding: 20px;
   width: 100vw;
   background-color: #3998cf;
@@ -108,24 +117,26 @@ overflow-x:hidden;
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
-
+    font-size: 1.3rem;
     &.router-link-exact-active {
       color: #ffffff;
     }
+
   }
 
   #nav_ele1{
-    margin-left: 37%;
+    margin-left: 28.3%;
   }
 
   .logo{
     border-radius: 5px;
-    margin-left: 143.5%;
+    
   }
 
   a.navbar-brand{
     font-size: 2rem;
     color: #dfe6eb;
+    margin-left: 24.2%;
   }
 
 }
