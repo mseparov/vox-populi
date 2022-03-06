@@ -42,6 +42,7 @@ export default {
 
   mounted() {
     this.getMessages();
+    
   },
 
   created(){
@@ -87,7 +88,7 @@ export default {
     getMessages(){
       db.collection("ChatMessages")
         .orderBy("sent_at", "desc")
-        .limit(200)
+        .limit(50)
         .get()
         .then((query)=> {
 
@@ -107,11 +108,12 @@ export default {
             
           })
 
+         // this.messages.reverse(); if you want messages to appear at the bottom
       })
       .catch((e)=> {
         console.error(e)
-
       })
+
     }
 
   },
@@ -137,6 +139,7 @@ font-weight: bold;
 
 .value{
   font-weight: bold;
+  word-break: break-all;
 }
 
 .message{
@@ -152,12 +155,14 @@ flex-wrap: wrap;
 
  .send_button{
     border-radius: 5px;
+    background-color: rgb(211, 230, 241);
+    border: 1px rgb(95, 95, 95) solid;
   }
 
 .chatBox{
     display: flex;
  position: fixed;
-  width:15vw;
+  width:14.9vw;
   z-index: 99;
   padding: 10px;
    

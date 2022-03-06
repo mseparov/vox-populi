@@ -77,6 +77,9 @@ export default{
         })
 
 
+    },
+    reload(){
+      window.location.reload();
     }
   }
 
@@ -92,7 +95,7 @@ body{
 background-color: rgba(157, 207, 219, 0.61);
 background: url("assets/background.jpg") no-repeat center center fixed;
 
-height: 100vh; //100% view height
+ //100% view height
 width:  99.3vw; //100% view width
 overflow-x:hidden;
 }
@@ -111,21 +114,29 @@ overflow-x:hidden;
   z-index: 99;
   padding: 20px;
   width: 100vw;
-  background-color: #3998cf;
-  background: url("assets/background.jpg") no-repeat center center fixed;
+  background-color: rgb(240, 243, 250);
+  border: 2px rgb(182, 174, 211) solid;
   a {
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-size: 1.3rem;
+    border-radius: 8px;
     &.router-link-exact-active {
-      color: #ffffff;
+      background-color: #bbc9d8;
     }
-
+    &:hover{
+     background-color: #bbc9d8;
   }
+  }
+  
 
   #nav_ele1{
     margin-left: 28.3%;
+    border-radius: 8px;
+  }
+  #nav_ele1:hover{
+    background-color: #bbc9d8;
   }
 
   .logo{
@@ -135,8 +146,14 @@ overflow-x:hidden;
 
   a.navbar-brand{
     font-size: 2rem;
-    color: #dfe6eb;
+    color: #000000;
     margin-left: 24.2%;
+  }
+  a.navbar-brand:hover{
+  background-color: rgb(240, 243, 250);
+  }
+  a.navbar-brand.router-link-exact-active{
+  background-color: rgb(240, 243, 250);
   }
 
 }

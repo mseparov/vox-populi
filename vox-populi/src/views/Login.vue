@@ -1,7 +1,7 @@
 <template>
  <div class="login">
     <h1>Welcome back!</h1>
-        <div class="color mt-4">
+        <div class="colorLogin mt-4">
         <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm">
@@ -80,7 +80,7 @@ export default {
 }
 
 
-.color{
+.colorLogin{
   background-color: rgb(209, 220, 243);
 }
 

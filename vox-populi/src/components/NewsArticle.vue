@@ -254,7 +254,8 @@ if(transcript.includes("open")) {
 
 
 if(transcript.includes("home")) {
-          router.push({ name: 'Home' });
+          //router.push({ name: 'Home' });     use reload because it helps the voice recog API
+          window.location.reload();
 };
 
 if(transcript.includes("about")) {
@@ -368,6 +369,8 @@ article {
 
   .search_button{
     border-radius: 5px;
+    background-color: rgb(211, 230, 241);
+    border: 1px rgb(95, 95, 95) solid;
   }
 
    .speech_button{

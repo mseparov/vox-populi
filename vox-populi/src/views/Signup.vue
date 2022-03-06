@@ -2,7 +2,7 @@
   <div class="signup">
     <h1>Sign up</h1>
     <h4>Please fill in this form to create an account :)</h4>
-    <div class="color">
+    <div class="colorSignup">
       <div class="row mt-4">
         <div class="col-sm">
         </div>
@@ -139,7 +139,8 @@ export default{
   padding: 10px;
 }
 
-.color{
+
+.colorSignup{
   background-color: rgb(209, 220, 243);
 }
 

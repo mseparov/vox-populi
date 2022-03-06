@@ -116,7 +116,6 @@ overflow: hidden;
 text-align: center;
 align-items: center;
 flex-wrap: wrap;
-
 }
 
 </style>

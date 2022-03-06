@@ -35,7 +35,7 @@ export default{
 <style>
   .searchTerms{
     position: fixed;
-    top: 0px;
+    top: 135px;
     margin-left: 12.7vw;
     width: 12vw;
     height: 100vh;
@@ -46,13 +46,14 @@ export default{
 
   .chat{
     position: fixed;
-    top: 0px;
+    top: 135px;
     margin-left: 74.6vw;
     width: 15vw;
-    height: 100vh;
+    height: 91vh;
     border-radius: 6px;    
     border: 2px rgb(232, 229, 238) solid;
      z-index: 100;
+     border-bottom: 55px rgb(232, 229, 238) solid; ;
   }
 
 </style>
