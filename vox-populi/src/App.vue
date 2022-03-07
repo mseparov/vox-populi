@@ -3,12 +3,12 @@
     <nav id="nav" class="navbar navbar-expand-lg navbar-light">
 
       <!-- <div class="container-fluid"> -->
-      <router-link to="/home" class="navbar-brand">
+      <button @click="reload()" class="navbar-brand">
       <img src="@/assets/Vox2.png" id="home_title" alt="" width="60"  class="d-inline-block align-text-centre logo">
       &nbsp; Vox Populi
-      </router-link>
+      </button>
 
-          <router-link to="/home" v-if="store.currentUser" id="nav_ele1" class="nav-link">Home</router-link>
+          <button @click="reload()" v-if="store.currentUser" id="nav_ele1" class="nav-link">Home</button>
 
           <router-link to="/about" v-if="store.currentUser" id="nav_ele2" class="nav-link">About</router-link>
           <router-link to="/about" v-else id="nav_ele1" class="nav-link">About</router-link>
@@ -134,6 +134,11 @@ overflow-x:hidden;
   #nav_ele1{
     margin-left: 28.3%;
     border-radius: 8px;
+    background: transparent;
+    border: 0;
+    color: #000000;
+    font-size: 1.3rem;
+    font-weight: bold;
   }
   #nav_ele1:hover{
     background-color: #bbc9d8;
@@ -144,16 +149,12 @@ overflow-x:hidden;
     
   }
 
-  a.navbar-brand{
+  .navbar-brand{
     font-size: 2rem;
     color: #000000;
     margin-left: 24.2%;
-  }
-  a.navbar-brand:hover{
-  background-color: rgb(240, 243, 250);
-  }
-  a.navbar-brand.router-link-exact-active{
-  background-color: rgb(240, 243, 250);
+    background-color: rgb(240, 243, 250);
+    border: 0;
   }
 
 }
