@@ -129,7 +129,7 @@ overflow-x:hidden;
      background-color: #bbc9d8;
   }
   }
-  
+
 
   #nav_ele1{
     margin-left: 28.3%;
