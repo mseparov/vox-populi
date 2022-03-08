@@ -1,8 +1,8 @@
 <template>
-    <div class="card">
+    <div class="articleCard">
       <div class="row">
           <div class= "column-left">
-          <img class="card-img-left" width="200" height="200" :src="info.img" />
+          <img class="card-img-left" width="150" height="150" :src="info.img" />
           </div>
           <div class="column-right">
             {{info.aheader}}
@@ -37,9 +37,11 @@ export default{
 <style scoped>
 .column-left {
   float: left;
-  width: 25%;
+  width: 20%;
 }
 .column-right {
-  width: 75%;
+  width: 80%;
+  text-align:justify;
+  padding-right: 30px;
 }
 </style>

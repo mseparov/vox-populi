@@ -13,9 +13,9 @@
         <div class = "form-group">
             <div v-for="comment in comments" :key="comment.id" >
         <div class = "form-group">
-            {{comment.acomment}}
-            <br>
             {{store.currentUser}}
+            {{': '}}
+            {{comment.acomment}}
             {{publishTime(comment.time)}}
         </div>
             </div>

@@ -1,10 +1,5 @@
 <template>
-  <div class="card">
-      <form @submit.prevent="filterSearch()" class="d-flex" action="">
-        <input v-model="store.searchWord" class="form-control me-2 words" type="search" id="searchBar" placeholder="Search the web for news..." aria-label="Search">
-        <button @click="filterSearch()" class="search_button">Search</button>
-      </form>
-      
+  <div class="newsCard">
       <form @submit.prevent="postNewArticle" class="form">
       <div class="form-group mt-4 mb-3">
         <label for="articleimage">Upload an image</label>
@@ -21,7 +16,7 @@
       <div class="form-group">
         <label for="newArticleText">Write your own article</label>
         <br/>
-        <textarea v-model="newArticleText" rows="6" cols="100"> </textarea>  
+        <textarea v-model="newArticleText" rows="6" cols="100" ></textarea>  
       </div>
       <button type="button" @click="postNewArticle" class="btn btn-primary mt-4 mb-4">Post Article</button>
       </form>
@@ -119,18 +114,18 @@ export default{
       });
     }
   },
-  computed: {
-    
-    filterSearch(){
-      let termin = this.store.searchWord;
-      return this.articles.filter((article) => article.atext.include(termin) || article.aheader.include(termin)); 
-    }
-  }
 };
 </script>
 
 <style scoped>
+.newsCard{
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  background:rgb(241, 233, 238) !important;
+}
 .form{
     background:rgb(125, 151, 199);
+    margin-top: 138px;
 }
 </style>
