@@ -14,6 +14,8 @@
           <router-link to="/about" v-if="store.currentUser" id="nav_ele2" class="nav-link">About</router-link>
           <router-link to="/about" v-else id="nav_ele1" class="nav-link">About</router-link>
 
+          <router-link to="/ourNews" v-if="store.currentUser" class="nav-link">ourNews</router-link>
+
           <router-link to="/login" v-if="!store.currentUser" class="nav-link">Login</router-link> 
 
           <router-link to="/signup" v-if="!store.currentUser" class="nav-link">Sign up</router-link> 
@@ -23,7 +25,6 @@
     <router-view/>
   </div>
 </template>
-
 
 <script>
 import store from '@/store';
@@ -122,7 +123,7 @@ overflow-x:hidden;
   }
   
   #nav_ele1{
-    margin-left: 28.3%;
+    margin-left: 24.7%;
     border-radius: 8px;
     background: transparent;
     border: 0;
