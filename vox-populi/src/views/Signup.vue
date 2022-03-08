@@ -2,7 +2,7 @@
   <div class="signup">
     <h1>Sign up</h1>
     <h4>Please fill in this form to create an account :)</h4>
-    <div class="container">
+    <div class="colorSignup">
       <div class="row mt-4">
       <div class="col-sm"> </div>
         <div class="col-sm">
@@ -128,13 +128,19 @@ export default{
 <style scoped>
 
 .signup{
-  background:rgb(125, 151, 199);
+  background:rgb(174, 193, 228);
+  margin-top: 135px;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 10px;
+}
+
+
+.colorSignup{
+  background-color: rgb(209, 220, 243);
 }
 
 </style>

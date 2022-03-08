@@ -17,4 +17,5 @@ var firebaseConfig = {
   let db = firebase.firestore();
   let storage = firebase.storage();
 
+
   export {firebase, db, storage};

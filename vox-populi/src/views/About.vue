@@ -16,6 +16,8 @@
        <br>
        "Open" -> ("Website") (opens the website you specified)
        <br>
+       "Logout" (Logs you out of your account)
+       <br>
        "Repeat after me" -> ("What you want repeated") (repeats after you)
        <br>
         Press "allow microphone" to allow the app to use your microphone
@@ -36,7 +38,8 @@
 <style>
 
 .about{
-  background:rgb(125, 151, 199);
+  background:rgb(174, 193, 228);
+  margin-top: 135px;
   width: 50%;
   margin-left: auto;
   margin-right: auto;

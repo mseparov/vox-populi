@@ -10,4 +10,8 @@ Vue.use(Croppa)
 new Vue({
   router,
   render: h => h(App)
+
 }).$mount('#app')
+
+window.Event = new Vue();
+

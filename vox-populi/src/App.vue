@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <nav id="nav" class="navbar navbar-expand-lg navbar-light ">
-      <a class="navbar-brand" href="http://localhost:8080/">
-        <img src="@/assets/Vox2.png" id="logo" alt="" class="d-inline-block align-text-centre logo">&nbsp;Vox Populi
-      </a>
- 
-          <a href="/" v-if="store.currentUser" id="nav_ele" class="nav-link">&emsp;Home</a>
 
-          <router-link to="/about" v-if="store.currentUser" class="nav-link">About</router-link>
-          <router-link to="/about" v-else id="nav_ele"  span style="padding-left: 100px"  class="nav-link">About</router-link>
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light">
 
-          <router-link to="/ourNews" v-if="store.currentUser" class="nav-link">ourNews</router-link>
+      <!-- <div class="container-fluid"> -->
+      <button @click="reload()" class="navbar-brand">
+      <img src="@/assets/Vox2.png" id="home_title" alt="" width="60"  class="d-inline-block align-text-centre logo">
+      &nbsp; Vox Populi
+      </button>
+
+          <button @click="reload()" v-if="store.currentUser" id="nav_ele1" class="nav-link">Home</button>
+
+          <router-link to="/about" v-if="store.currentUser" id="nav_ele2" class="nav-link">About</router-link>
+          <router-link to="/about" v-else id="nav_ele1" class="nav-link">About</router-link>
 
           <router-link to="/login" v-if="!store.currentUser" class="nav-link">Login</router-link> 
 
@@ -29,26 +31,28 @@ import { firebase } from '@/firebase';
 import router from '@/router';
 
 firebase.auth().onAuthStateChanged((user) => {
-  const currentRoute = router.currentRoute;
 
-  if (user) {
-    // User is signed in.
-    console.log(' Logged in ', user.email);
-    store.currentUser = user.email;
+const currentRoute = router.currentRoute;
 
-    if (!currentRoute.meta.needsUser) {
-      router.push({ name: 'Home' });
-    }
-  } 
-  else {
-    // User is not signed in.
-    console.log('Logged out');
-    store.currentUser = null;
+if (user) {
+  // User is signed in.
+  console.log(' Logged in ', user.email);
+  store.currentUser = user.email;
 
-    if (currentRoute.meta.needsUser) {
-      router.push({ name: 'Login' });
-    }
+  if(!currentRoute.meta.needsUser) {
+    router.push({ name: "Home"});
   }
+} 
+else {
+  // User is not signed in.
+  console.log('Logged out');
+  store.currentUser = null;
+
+if (currentRoute.meta.needsUser) {
+  router.push({ name: 'Login' });
+}
+}
+
 });
 
 export default{
@@ -63,6 +67,11 @@ export default{
         firebase.auth().signOut().then(() => {
           this.$router.replace({name: "Login"})
         })
+
+    },
+    reload(){
+      window.location.reload();
+
     }
   }
 }
@@ -70,11 +79,14 @@ export default{
 </script>
 <style lang="scss">
 body{
-  background-color: rgba(157, 207, 219, 0.61);
-  background: url("assets/background.jpg") no-repeat center center fixed;
-  height: 100vh; //100% view height
-  width:  99.3vw; //100% view width
-  overflow-x:hidden;
+
+background-color: rgba(157, 207, 219, 0.61);
+background: url("assets/background.jpg") no-repeat center center fixed;
+
+ //100% view height
+width:  99.3vw; //100% view width
+overflow-x:hidden;
+
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -85,29 +97,54 @@ body{
 }
 
 #nav {
+  position: fixed;
+  top: 0;
+  z-index: 99;
   padding: 20px;
   width: 100vw;
-  background-color: #3998cf;
-  background: url("assets/background.jpg") no-repeat center center fixed;
+  background-color: rgb(240, 243, 250);
+  border: 2px rgb(182, 174, 211) solid;
   a {
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
+
+    font-size: 1.3rem;
+    border-radius: 8px;
+
     &.router-link-exact-active {
-      color: #ffffff;
+      background-color: #bbc9d8;
     }
+    &:hover{
+     background-color: #bbc9d8;
   }
-  #nav_ele{
-    margin-left: 37%;
+
+  }
+  
+  #nav_ele1{
+    margin-left: 28.3%;
+    border-radius: 8px;
+    background: transparent;
+    border: 0;
+    color: #000000;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  #nav_ele1:hover{
+    background-color: #bbc9d8;
+
   }
   .logo{
     border-radius: 5px;
-    margin-left: 165%;
-    width: 60px;
+
   }
-  a.navbar-brand{
+
+  .navbar-brand{
     font-size: 2rem;
-    color: #dfe6eb;
+    color: #000000;
+    margin-left: 24.2%;
+    background-color: rgb(240, 243, 250);
+    border: 0;
   }
 }
 </style>
