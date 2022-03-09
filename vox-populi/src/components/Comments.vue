@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="commentCard">
         <form @submit.prevent="postComment" class="form-group">
             <div class="form-group">
             <label for="newComment"></label>
@@ -94,5 +94,11 @@ export default{
 .comments{
     width: 87%;
     height: 45px;
+}
+.commentCard{
+    margin-top: 0px;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
