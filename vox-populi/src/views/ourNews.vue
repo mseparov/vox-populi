@@ -29,7 +29,6 @@
 <script>
 import store from '@/store';
 import ourArticle from '@/components/ourArticle.vue';
-import Comments from '@/components/Comments.vue';
 import { firebase, db, storage } from '@/firebase';
 
 export default{
@@ -45,7 +44,6 @@ export default{
   },
   components: {
     ourArticle,
-    Comments,
   },
   mounted() {
     this.getArticles();
@@ -72,6 +70,7 @@ export default{
           });
         });
     },
+
     getImage(){
       return new Promise((resolveFn, errorFn) => {
         this.imageReference.generateBlob((data) => {
@@ -79,39 +78,45 @@ export default{
         });
       });
     },
+
     postNewArticle() {
-      this.getImage().then((data) => {
-        let imageName = 'images/' + store.currentUser + '/' + Date.now() + '.png';
+      if (this.newArticleHeader.length ==0 || this.newArticleText.length ==0 || this.imageReference.length ==null) {
+        alert("You must fill in all the fields.")
+      } else {
 
-        return storage.ref(imageName).put(data)
-      })
-      .then((result) => {
-        return result.ref.getDownloadURL()
-      })
-      .then((url) => {
-        console.log('Public link', url);
+        this.getImage().then((data) => {
+          let imageName = 'images/' + store.currentUser + '/' + Date.now() + '.png';
 
-        const articleHeader = this.newArticleHeader;
-        const articleText = this.newArticleText;
+          return storage.ref(imageName).put(data)
+        })
+        .then((result) => {
+          return result.ref.getDownloadURL()
+        })
+        .then((url) => {
+          console.log('Public link', url);
 
-        return db.collection('articles').add({
-          image: url,
-          header: articleHeader,
-          text: articleText,
-          email: store.currentUser,
-          publishingTime: Date.now(),
+          const articleHeader = this.newArticleHeader;
+          const articleText = this.newArticleText;
+
+          return db.collection('articles').add({
+            image: url,
+            header: articleHeader,
+            text: articleText,
+            email: store.currentUser,
+            publishingTime: Date.now(),
+          });
+        })
+        .then((doc) => {
+          console.log('Saved', doc);
+          this.imageReference.remove();
+          this.newArticleHeader = '';
+          this.newArticleText = '';
+          this.getArticles();
+        })
+        .catch((e) =>{
+          console.error(e);
         });
-      })
-      .then((doc) => {
-        console.log('Saved', doc);
-        this.imageReference.remove();
-        this.newArticleHeader = '';
-        this.newArticleText = '';
-        this.getArticles();
-      })
-      .catch((e) =>{
-        console.error(e);
-      });
+      }
     }
   },
 };

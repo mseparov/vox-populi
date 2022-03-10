@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="commentCard">
         <form @submit.prevent="postComment" class="form-group">
             <div class="form-group">
             <label for="newComment"></label>
@@ -27,6 +27,7 @@
 import store from '@/store';
 import { firebase, db, storage } from '@/firebase';
 import moment from 'moment';
+import ourArticle from '@/components/ourArticle.vue';
 
 export default{
     name: 'Comments',
@@ -36,6 +37,9 @@ export default{
             store,
             newComment: "",
         };
+    },
+    components: {
+        ourArticle,
     },
     mounted() {
         this.getComments();
@@ -61,21 +65,25 @@ export default{
         },
     
         postNewComment() {
-            const articleComm = this.newComment;
+            if (this.newComment.length ==0) {
+                alert("You must fill in all the fields.")
+            } else {
+                const articleComm = this.newComment;
 
-            db.collection('Comments').add({
-                comm: articleComm,
-                email: store.currentUser,
-                publishingTime: Date.now(),
-            })
-            .then((doc) => {
-                console.log('Saved', doc);
-                this.newComment = '';
-                this.getComments();
-            })
-            .catch((e) =>{
-                console.error(e);
-            });
+                db.collection('Comments').add({
+                    comm: articleComm,
+                    email: store.currentUser,
+                    publishingTime: Date.now(),
+                })
+                .then((doc) => {
+                    console.log('Saved', doc);
+                    this.newComment = '';
+                    this.getComments();
+                })
+                .catch((e) =>{
+                    console.error(e);
+                });
+            }
         },
         
         publishTime(dataTime){
