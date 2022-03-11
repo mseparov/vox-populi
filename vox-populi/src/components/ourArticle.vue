@@ -2,7 +2,7 @@
     <div class="commentCard">
       <div class="row">
           <div class= "column-left">
-          <img class="card-img-left" width="200" height="200" :src="info.img" />
+          <img class="card-img-left" width="150" height="150" :src="info.img" />
           </div>
           <div class="column-right">
             {{info.aheader}}
@@ -48,10 +48,6 @@ export default{
   computed: {
     publishTime(){
       return moment(this.info.time).fromNow();
-    },
-    filterComm(){
-      let termin = this.info.id;
-      return this.comments.filter((comment) => this.comments.articleId.include(termin)); 
     }
   },
   mounted() {
@@ -60,6 +56,7 @@ export default{
   methods: {
     getComments(){
       db.collection('Comments')
+      .orderBy('publishingTime', 'desc')
       .limit(10)
       .get()
       .then((query) => {
@@ -79,21 +76,26 @@ export default{
     },
     postNewComment() {
       const articleComm = this.newComment;
+        if (this.newComment.length ==0) {
+          alert("You must fill in all the fields.")
+        } else {
+          const articleComm = this.newComment;
 
-      db.collection('Comments').add({
-        articleId: this.info.id,
-        comm: articleComm,
-        email: store.currentUser,
-        publishingTime: Date.now(),
-      })
-      .then((doc) => {
-        console.log('Saved', doc);
-        this.newComment = '';
-        this.getComments();
-      })
-      .catch((e) =>{
-        console.error(e);
-      });
+          db.collection('Comments').add({
+            articleId: this.info.id,
+            comm: articleComm,
+            email: store.currentUser,
+            publishingTime: Date.now(),
+          })
+          .then((doc) => {
+            console.log('Saved', doc);
+            this.newComment = '';
+            this.getComments();
+          })
+          .catch((e) =>{
+            console.error(e);
+          });
+        }
     },
   },
 };
@@ -102,10 +104,12 @@ export default{
 <style scoped>
 .column-left {
   float: left;
-  width: 25%;
+  width: 20%;
 }
 .column-right {
-  width: 75%;
+  width: 80%;
+  text-align:justify;
+  padding-right: 30px;
 }
 #commentField{
     width: 87%;

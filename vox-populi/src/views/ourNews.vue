@@ -1,10 +1,10 @@
 <template>
   <div class="newsCard">
       <form @submit.prevent="postNewArticle" class="form">
-      <div class="form-group mt-4 mb-3">
+      <div class="form-group mb-3">
         <label for="articleimage">Upload an image</label>
         <br/>
-        <croppa :width="200" :height="200" placeholder="Image" v-model="imageReference" class="form-control-lg"></croppa>
+        <croppa :width="150" :height="150" placeholder="Image" v-model="imageReference" class="form-control-lg"></croppa>
       </div>
       <div class="form-group mb-3">
         <label for="newArticleHeader">Article header</label>
@@ -80,7 +80,7 @@ export default{
     },
 
     postNewArticle() {
-      if (this.newArticleHeader.length ==0 || this.newArticleText.length ==0 || this.imageReference.length ==null) {
+      if (this.newArticleHeader.length ==0 || this.newArticleText.length ==0) {
         alert("You must fill in all the fields.")
       } else {
 
