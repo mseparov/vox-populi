@@ -29,7 +29,6 @@
 <script>
 import store from '@/store';
 import ourArticle from '@/components/ourArticle.vue';
-import Comments from '@/components/Comments.vue';
 import { firebase, db, storage } from '@/firebase';
 
 export default{
@@ -45,7 +44,7 @@ export default{
   },
   components: {
     ourArticle,
-    Comments,
+
   },
   mounted() {
     this.getArticles();
