@@ -1,10 +1,11 @@
 <template>
 
   <div class="color">
-      <h3 class="title">Live Chat</h3>
+      <h3 class="title">Discussion</h3>
        <div v-for="(message) in messages" :key="message.id" class="message">
       
-            <h5 v-html="message.email + ':'"></h5> &ensp;
+            <h5 v-if="message.email == store.currentUser" style="color: rgb(8, 120, 0)" v-html="message.email + ':'"></h5>
+            <h5 v-if="message.email != store.currentUser" v-html="message.email + ':'"></h5> &ensp;
 
             <h5 v-html="message.value" class="value"></h5> &ensp;
            
@@ -36,6 +37,7 @@ export default {
     return{
         messages: [],
         inputMessage: "",
+        store
 
     }
   },
