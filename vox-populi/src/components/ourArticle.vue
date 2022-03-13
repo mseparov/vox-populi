@@ -23,7 +23,7 @@
           </form>
           <div class="commentList">
             <div v-for="comment in comments.filter(f=>f.articleId === info.id)" :key="comment.id">
-              {{store.currentUser}}
+              {{comment.email}}
               {{': '}}
               {{comment.acomment}}
             </div>
@@ -71,7 +71,8 @@ export default{
             id: doc.id,
             ctime: data.publishingTime,
             acomment: data.comm,
-            articleId: data.articleId
+            articleId: data.articleId,
+            email:data.email
           });
         });
       });
