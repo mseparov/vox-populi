@@ -21,10 +21,12 @@
             <button type="button" @click="postNewComment" class="btn btn-primary">Comment</button>
             </div>
           </form>
-          <div v-for="comment in comments.filter(f=>f.articleId === info.id)" :key="comment.id" >
-            {{store.currentUser}}
-            {{': '}}
-            {{comment.acomment}}
+          <div class="commentList">
+            <div v-for="comment in comments.filter(f=>f.articleId === info.id)" :key="comment.id">
+              {{store.currentUser}}
+              {{': '}}
+              {{comment.acomment}}
+            </div>
           </div>
       </div>
     </div>
@@ -117,7 +119,7 @@ export default{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .comments{
-    width: 87%;
+    width: auto;
     height: 45px;
 }
 .commentCard{
@@ -125,6 +127,13 @@ export default{
     width: 50vw;
     margin-left: auto;
     margin-right: auto;
+}
+.commentList{
+  background: rgb(208, 229, 236);
+  width: 96%;
+  margin-left: 14px;
+  text-align:justify;
+  overflow: scroll;
 }
 </style>
 
