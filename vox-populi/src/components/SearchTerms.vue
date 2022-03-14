@@ -1,7 +1,7 @@
 <template>
 
   <div class="searchTermContainer">
-      <h3 class="title">Recently searched terms</h3>
+      <h3 class="title">Recently Searched Terms</h3>
        <div v-for="(searchTerm) in searchTerms" :key="searchTerm.id" class="searchterm">
       
             <h5 v-html="searchTerm.value" class="value"></h5> &ensp;
@@ -64,8 +64,6 @@ export default {
 
           query.forEach((term)=>{
             const data = term.data();
-
-           //console.log(data.searched_at)
             
             this.searchTerms.push({
               id: term.id,
@@ -98,6 +96,7 @@ export default {
 background-color: rgb(240, 243, 250);
 overflow: hidden;
 padding: 0;
+height: 45% !important;
 }
 
 .title{

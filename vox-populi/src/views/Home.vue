@@ -3,6 +3,7 @@
      
      <NewsArticle/>
      <SearchTerms class="searchTerms"/>
+     <SearchTermsFrequency class="searchTermsFrequency"/>
      <Chat class="chat"/>
 
 </div>
@@ -12,6 +13,7 @@
 <script>
 import NewsArticle from '@/components/NewsArticle.vue';
 import SearchTerms from '@/components/SearchTerms.vue';
+import SearchTermsFrequency from '@/components/SearchTermsFrequency.vue';
 import Chat from '@/components/Chat.vue';
 
 export default{
@@ -19,6 +21,7 @@ export default{
   components: {
     NewsArticle,
     SearchTerms,
+    SearchTermsFrequency,
     Chat
   },
 
@@ -31,6 +34,17 @@ export default{
   .searchTerms{
     position: fixed;
     top: 135px;
+    margin-left: 12.7vw;
+    width: 12vw;
+    height: 100vh;
+    border-radius: 6px;    
+    border: 2px rgb(232, 229, 238) solid;
+    z-index: 100;
+  }
+
+    .searchTermsFrequency{
+    position: fixed;
+    top: 738px;
     margin-left: 12.7vw;
     width: 12vw;
     height: 100vh;
