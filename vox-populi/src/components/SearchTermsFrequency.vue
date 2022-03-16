@@ -90,7 +90,7 @@ this.searchTermCount = result
 
 this.searchTermCount = this.searchTermCount.sort((a, b) => (a.value < b.value) ? 1 : -1)
 
-console.log(this.searchTermCount)
+// console.log(this.searchTermCount)
         
       })
       .catch((e)=> {

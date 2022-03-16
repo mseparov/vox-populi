@@ -14,4 +14,3 @@ new Vue({
 }).$mount('#app')
 
 window.Event = new Vue();
-
