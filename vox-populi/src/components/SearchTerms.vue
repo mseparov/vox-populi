@@ -4,7 +4,7 @@
       <h3 class="title">Recently Searched Terms</h3>
        <div v-for="(searchTerm) in searchTerms" :key="searchTerm.id" class="searchterm">
       
-            <h5 v-html="searchTerm.value" class="value"></h5> &ensp;
+            <h5 v-html="searchTerm.value" style="color: #0F4387" class="value"></h5> &ensp;
             <h5>was searched by:</h5> &ensp;
             <h5 v-html="searchTerm.email"></h5> &ensp;
            
@@ -96,7 +96,7 @@ export default {
 background-color: rgb(240, 243, 250);
 overflow: hidden;
 padding: 0;
-height: 45% !important;
+height: 75% !important;
 }
 
 .title{

@@ -44,7 +44,7 @@ export default{
 
     .searchTermsFrequency{
     position: fixed;
-    top: 738px;
+    top: 58vh;
     margin-left: 12.7vw;
     width: 12vw;
     height: 100vh;

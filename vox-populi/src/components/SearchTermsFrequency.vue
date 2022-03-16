@@ -4,7 +4,7 @@
       <h3 class="title">Most Searched Terms</h3>
        <div v-for="(searchTerm) in searchTermCount" :key="searchTerm.id" class="searchterm">
       
-            <h5 v-html="searchTerm.key" class="value"></h5> &ensp;
+            <h5 v-html="searchTerm.key" style="color: #0F4387" class="value"></h5> &ensp;
             <h5>was searched: </h5> &ensp;
             <h5 v-html="searchTerm.value"></h5> &ensp;
             <h5>times.</h5> &ensp;
@@ -112,7 +112,7 @@ this.searchTermCount = this.searchTermCount.sort((a, b) => (a.value < b.value) ?
 background-color: rgb(240, 243, 250);
 overflow: hidden;
 padding: 0;
-height: 45% !important;
+height: 75% !important;
 }
 
 .title{
