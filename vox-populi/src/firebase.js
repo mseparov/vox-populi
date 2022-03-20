@@ -4,12 +4,12 @@ import "firebase/firestore";
 import "firebase/storage";
 
 var firebaseConfig = {
-    apiKey: "AIzaSyD8vU_920ccpG23iqy6oP_OGk8daUbb1bA",
-    authDomain: "vox-populi-5998e.firebaseapp.com",
-    projectId: "vox-populi-5998e",
-    storageBucket: "vox-populi-5998e.appspot.com",
-    messagingSenderId: "886971705892",
-    appId: "1:886971705892:web:2e6c48c0b73bdd31ab46b1"
+    apiKey: "AIzaSyAMkhaKBOQeAxiIbiI0vCYY3PFeYJXKiA4",
+    authDomain: "vox-populi-extend.firebaseapp.com",
+    projectId: "vox-populi-extend",
+    storageBucket: "vox-populi-extend.appspot.com",
+    messagingSenderId: "768390973095",
+    appId: "1:768390973095:web:aeaa88ad2225b0a8dc3d82"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
